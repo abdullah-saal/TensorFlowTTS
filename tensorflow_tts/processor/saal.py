@@ -1,5 +1,5 @@
+# -*- coding: utf-8 -*-
 
-"""Perform preprocessing and raw feature extraction for LibriTTS dataset."""
 
 import os
 import re
@@ -8,10 +8,8 @@ import numpy as np
 import soundfile as sf
 from dataclasses import dataclass
 
-
 from tensorflow_tts.processor.base_processor import BaseProcessor
 from tensorflow_tts.utils.utils import PROCESSOR_FILE_NAME
-
 
 valid_symbols = [
     'IH',
@@ -57,11 +55,9 @@ valid_symbols = [
     'KH',
     'GH',
 ]
-# valid_symbols.append("SIL")
-valid_symbols.append("<eos>")
+_punctuation = "-"
 
-_punctuation = "- "
-# _arpabet = ["@" + s for s in valid_symbols]
+valid_symbols.append("<eos>")
 
 SAAL_SYMBOLS = valid_symbols + list(_punctuation)
 
