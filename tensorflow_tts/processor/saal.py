@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+#  Abdullah Alattar
 
 import os
-import re
 
 import numpy as np
 import soundfile as sf
@@ -11,7 +11,11 @@ from dataclasses import dataclass
 from tensorflow_tts.processor.base_processor import BaseProcessor
 from tensorflow_tts.utils.utils import PROCESSOR_FILE_NAME
 
+
 valid_symbols = [
+    '<pad>',
+    '<eos>',
+    '-',
     'IH',
     'AE',
     'UH',
@@ -55,11 +59,7 @@ valid_symbols = [
     'KH',
     'GH',
 ]
-_punctuation = "-"
-
-valid_symbols.append("<eos>")
-
-SAAL_SYMBOLS = valid_symbols + list(_punctuation)
+SAAL_SYMBOLS = valid_symbols
 
 
 @dataclass
